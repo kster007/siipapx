@@ -1,0 +1,16 @@
+Thumbs.db
+.DS_Store
+.gradle
+build/
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+# project release file
+/*.war
+/*.jar
+/*.sublime-workspace
+.gradle
