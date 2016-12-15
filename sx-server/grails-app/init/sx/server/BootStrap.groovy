@@ -19,8 +19,8 @@ class BootStrap {
           ,nombre:' ADMIN ADMIN'
           ,numeroDeEmpleado:'0000')
         .save(flush:true,failOnError:true)
-        UserRol.create(admin,userRole,true)
-        UserRol.create(admin,adminRole,true)
+        UserRole.create(admin,userRole,true)
+        UserRole.create(admin,adminRole,true)
       }
 
     }
