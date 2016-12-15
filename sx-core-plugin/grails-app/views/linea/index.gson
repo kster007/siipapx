@@ -1,0 +1,8 @@
+import sx.core.Linea
+
+model {
+	Iterable<Linea> lineaList
+}
+
+json tmpl.linea(lineaList ?: [])
+

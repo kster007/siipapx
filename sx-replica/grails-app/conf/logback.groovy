@@ -14,10 +14,11 @@ appender('STDOUT', ConsoleAppender) {
         charset = Charset.forName('UTF-8')
 
         pattern =
-                '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} ' + // Date
+                '%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} ' + // Date
                         '%clr(%5p) ' + // Log level
-                        '%clr(---){faint} %clr([%15.15t]){faint} ' + // Thread
-                        '%clr(%-40.40logger{39}){cyan} %clr(:){faint} ' + // Logger
+                        //'%clr(---){faint} %clr([%15.15t]){faint} ' + // Thread
+                        //'%clr(%-40.40logger{39}){cyan} %clr(:){faint} ' + // Logger
+                        '%clr(%logger{0}){cyan} %clr(:){faint} ' + // Logger
                         '%m%n%wex' // Message
     }
 }
@@ -36,4 +37,11 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
 }
 else {
     root(ERROR, ['STDOUT'])
+}
+
+if(Environment.current == Environment.DEVELOPMENT){
+    logger("grails.app.services",INFO,['STDOUT'],false)
+    logger("grails.app.controllers",INFO,['STDOUT'],false)
+    logger("grails.app.jobs",INFO,['STDOUT'],false)
+    logger("sx.replica",INFO,['STDOUT'],false)
 }

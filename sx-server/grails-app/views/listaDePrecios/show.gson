@@ -1,0 +1,22 @@
+import sx.compras.ListaDePrecios
+
+model {
+    ListaDePrecios listaDePrecios
+}
+
+//json tmpl.listaDePrecios(listaDePrecios)
+
+json g.render(listaDePrecios, [deep:true,excludes:['lista','dateCreated','lastUpdated','partidas','sw2']]){
+    proveedor {
+        id listaDePrecios.proveedor.id
+        clave listaDePrecios.proveedor.clave
+        nombre listaDePrecios.proveedor.nombre
+        rfc listaDePrecios.proveedor.rfc
+    }
+    //sucursal compra.sucursal.nombre
+    partidas g.render(listaDePrecios.partidas, [deep:true, excludes:['lista','lastUpdated']] )
+
+
+}
+
+

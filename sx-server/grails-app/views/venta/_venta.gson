@@ -1,0 +1,14 @@
+import sx.core.Venta
+
+model {
+    Venta venta
+}
+
+json g.render(venta, [excludes:['sucursal','moneda','dateCreated','lastUpdated']]){
+    sucursal {
+        id venta.sucursal.id
+        nombre venta.sucursal.nombre
+    }
+    moneda venta.moneda.currencyCode
+
+}

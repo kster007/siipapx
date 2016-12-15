@@ -1,0 +1,13 @@
+import sx.core.Venta
+
+model {
+    Venta venta
+}
+
+json g.render(venta, [deep:true,excludes:['moneda','dateCreated','lastUpdated']]){
+    moneda venta.moneda.currencyCode
+    //partidas g.render(requisicion.partidas, [deep:true, excludes:['requisicion','lastUpdated']] )
+
+}
+
+

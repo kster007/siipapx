@@ -5,7 +5,13 @@
             SX
         </div>
     </li>
-    <li class="">
+    <li class="${webRequest.controllerName == 'quartz' ? 'active':''}">
+        <g:link action="list" controller="quartz">
+            <i class="fa fa-cogs"></i> Jobs
+            <i class="fa fa-angle-right pull-right"></i>
+        </g:link>
+    </li>
+    <li>
         <a href="index.html">
             <i class="fa fa-exchange"></i> <span class="nav-label">Replicadores</span> <span class="fa arrow"></span>
         </a>

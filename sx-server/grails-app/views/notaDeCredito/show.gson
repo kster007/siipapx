@@ -1,0 +1,18 @@
+import sx.cxc.NotaDeCredito
+
+model {
+    NotaDeCredito notaDeCredito
+}
+
+json g.render(notaDeCredito, [excludes:['dateCreated','lastUpdated','moneda','cliente'] ]){
+    modificado notaDeCredito.lastUpdated.format('yyyy-MM-dd\'T\'HH:mm:ssZ')
+    creado notaDeCredito.dateCreated.format('yyyy-MM-dd\'T\'HH:mm:ssZ')
+    moneda notaDeCredito.moneda.currencyCode
+    cliente {
+        id notaDeCredito.cliente.id
+        clave notaDeCredito.cliente.clave
+        nombre notaDeCredito.cliente.nombre
+        rfc notaDeCredito.cliente.rfc
+        activo notaDeCredito.cliente.activo
+    }
+}

@@ -1,1 +1,1 @@
-include "sx-server", "sx-core-plugin"
+include "sx-server", "sx-core-plugin" ,"sx-replica"

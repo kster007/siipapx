@@ -1,0 +1,23 @@
+import sx.compras.RecepcionDeCompra
+
+model {
+    RecepcionDeCompra recepcionDeCompra
+}
+
+json g.render(recepcionDeCompra, [excludes:['sucursal','proveedor','compra','dateCreated', 'lastUpdated'] ]){
+    modificado recepcionDeCompra.lastUpdated.format('yyyy-MM-dd\'T\'HH:mm:ssZ')
+    proveedor {
+        id recepcionDeCompra.proveedor.id
+        nombre recepcionDeCompra.proveedor.nombre
+    }
+    sucursal {
+        id recepcionDeCompra.sucursal.id
+        nombre recepcionDeCompra.sucursal.nombre
+    }
+    compra {
+        id recepcionDeCompra.compra.id
+        folio recepcionDeCompra.compra.folio
+        fecha recepcionDeCompra.compra.fecha
+    }
+
+}
